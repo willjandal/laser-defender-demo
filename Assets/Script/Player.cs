@@ -11,6 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] float fireSpeed = 10f;
     [SerializeField] float firingInterval = 0.1f;
 
+    //variables
+    private Vector3 touchPosition;
+    private Rigidbody2D rb;
+    private Vector3 direction;
+    //private float movementSpeed = 10f;
+
     Coroutine firingCoroutine;
 
     float xMin, yMin;
@@ -20,6 +26,7 @@ public class Player : MonoBehaviour
     void Start()
     {
 
+        rb = GetComponent<Rigidbody2D>();
         SetUpMoveBounderies();
         
     }
@@ -94,7 +101,27 @@ public class Player : MonoBehaviour
         var newXPos = Mathf.Clamp(transform.position.x + deltaX, xMin, xMax);
         var newYPos = Mathf.Clamp(transform.position.y + deltaY, yMin, yMax);
         transform.position = new Vector2(newXPos, newYPos);
-        
+
+
+
+        //movement for Mobile devices
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            touchPosition.z = 0;
+            direction = (touchPosition - transform.position);
+            rb.velocity = new Vector2(direction.x, direction.y) * movementSpeed;
+            //InvokeRepeating("Fire", 0.1f, 0.3f);
+
+
+            if (touch.phase == TouchPhase.Ended)
+            {
+                rb.velocity = Vector2.zero;
+                StopCoroutine(firingCoroutine);
+            }
+        }
+
     }
 
 
