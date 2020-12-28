@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8243278952494756851}
   - component: {fileID: 8243278952494756850}
   - component: {fileID: 8243278952494756849}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 10
   padding: 0.5
+  health: 200
   laserPrefab: {fileID: 5265995673338791495, guid: 4570d4533fbd06e4cbfeb5345ed0838f,
     type: 3}
   fireSpeed: 10
