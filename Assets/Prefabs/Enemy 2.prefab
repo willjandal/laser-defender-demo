@@ -112,9 +112,11 @@ MonoBehaviour:
   shotCounter: 0
   minTimeBetweenShots: 0.2
   maxTimeBetweenShots: 3
+  projectileSpeed: 10
   enemeyProjectilePrefab: {fileID: 4787845761063562653, guid: 22ab0099d35fb5f4aa345bd3580e68ca,
     type: 3}
-  projectileSpeed: 10
+  explosionVFX: {fileID: 436795624504232747, guid: 77403a1bbf5b0aa48bd371cc734850ed,
+    type: 3}
 --- !u!60 &1375092251703731542
 PolygonCollider2D:
   m_ObjectHideFlags: 0

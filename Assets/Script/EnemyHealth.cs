@@ -9,8 +9,12 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
     [SerializeField] float maxTimeBetweenShots = 3f;
-    [SerializeField] GameObject enemeyProjectilePrefab;
     [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float fxDuration = 1f;
+
+    [Header("GameObjects")]
+    [SerializeField] GameObject enemeyProjectilePrefab;
+    [SerializeField] GameObject explosionVFX;
 
 
     // Start is called before the first frame update
@@ -49,7 +53,6 @@ public class EnemyHealth : MonoBehaviour
         Destroy(enemyProjectile, 2);
     }
 
-
     /// <summary>
     /// Initiates the damage to the Gameobject on Trigger Collision
     /// </summary>
@@ -67,7 +70,18 @@ public class EnemyHealth : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
+            //Destroy(gameObject);
         }
     }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+        GameObject explosionFX = Instantiate(explosionVFX,
+            transform.position,
+            transform.rotation);
+        Destroy(explosionFX, fxDuration);
+    }
+
 }
