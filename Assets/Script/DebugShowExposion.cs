@@ -22,5 +22,8 @@ public class DebugShowExposion : MonoBehaviour
     public void ShowExplosion()
     {
         Debug.Log("Debug button pressed");
+
+        GameObject explosion = Instantiate(explodeVFX,
+            transform.position, transform.rotation);
     }
 }
