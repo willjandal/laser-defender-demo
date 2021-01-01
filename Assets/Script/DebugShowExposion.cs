@@ -6,6 +6,7 @@ public class DebugShowExposion : MonoBehaviour
 {
 
     [SerializeField] GameObject explodeVFX;
+    //[SerializeField] Animation explosionAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,9 @@ public class DebugShowExposion : MonoBehaviour
         Debug.Log("Debug button pressed");
 
         GameObject explosion = Instantiate(explodeVFX,
-            transform.position, transform.rotation);
+            transform.position, Quaternion.identity);
+
+        //explosionAnim.Play("Explosion01");
+
     }
 }

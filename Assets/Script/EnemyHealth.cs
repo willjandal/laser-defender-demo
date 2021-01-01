@@ -15,6 +15,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField] GameObject enemeyProjectilePrefab;
     [SerializeField] GameObject explosionVFX;
+    [SerializeField] GameObject demoFX;
 
 
     // Start is called before the first frame update
@@ -78,10 +79,12 @@ public class EnemyHealth : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
-        GameObject explosionFX = Instantiate(explosionVFX,
+        /*GameObject explosionFX = Instantiate(explosionVFX,
             transform.position,
-            transform.rotation);
-        Destroy(explosionFX, fxDuration);
+            transform.rotation);*/
+
+        GameObject demoExplode = Instantiate(demoFX, transform.position, Quaternion.identity);
+        Destroy(demoExplode, fxDuration);
     }
 
 }
