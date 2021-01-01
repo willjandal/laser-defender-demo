@@ -116,9 +116,8 @@ MonoBehaviour:
   fxDuration: 0.5
   enemeyProjectilePrefab: {fileID: 4787845761063562653, guid: 22ab0099d35fb5f4aa345bd3580e68ca,
     type: 3}
-  explosionVFX: {fileID: 436795624504232747, guid: 77403a1bbf5b0aa48bd371cc734850ed,
-    type: 3}
-  demoFX: {fileID: 127332, guid: ef08d13eead399d4dbdaf49c94540206, type: 3}
+  explosionVFX: {fileID: 127332, guid: ef08d13eead399d4dbdaf49c94540206, type: 3}
+  explosionSFX: {fileID: 8300000, guid: 4110fcfc8214b294794799cb216c4931, type: 3}
 --- !u!60 &1375092251703731542
 PolygonCollider2D:
   m_ObjectHideFlags: 0

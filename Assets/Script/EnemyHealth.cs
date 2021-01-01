@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
+    [Header("Params")]
     [SerializeField] float health = 100;
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
     [Header("GameObjects")]
     [SerializeField] GameObject enemeyProjectilePrefab;
     [SerializeField] GameObject explosionVFX;
-    [SerializeField] GameObject demoFX;
+    [SerializeField] AudioClip explosionSFX;
 
 
     // Start is called before the first frame update
@@ -72,19 +72,23 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            //Destroy(gameObject);
+            PlayExplosionSFX();
         }
     }
 
     private void Die()
     {
         Destroy(gameObject);
-        /*GameObject explosionFX = Instantiate(explosionVFX,
-            transform.position,
-            transform.rotation);*/
+        GameObject ShowExplosionVFX = 
+            Instantiate(explosionVFX, 
+            transform.position, 
+            Quaternion.identity);
+        Destroy(ShowExplosionVFX, fxDuration);
+    }
 
-        GameObject demoExplode = Instantiate(demoFX, transform.position, Quaternion.identity);
-        Destroy(demoExplode, fxDuration);
+    private void PlayExplosionSFX()
+    {
+        AudioSource.PlayClipAtPoint(explosionSFX, Camera.main.transform.position);
     }
 
 }

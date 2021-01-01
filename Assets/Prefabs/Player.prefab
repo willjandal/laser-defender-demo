@@ -103,6 +103,9 @@ MonoBehaviour:
     type: 3}
   fireSpeed: 10
   firingInterval: 0.2
+  explosionVFX: {fileID: 127332, guid: ef08d13eead399d4dbdaf49c94540206, type: 3}
+  explodingSFX: {fileID: 8300000, guid: 4110fcfc8214b294794799cb216c4931, type: 3}
+  fxDuration: 0.5
 --- !u!114 &8243278952494756850
 MonoBehaviour:
   m_ObjectHideFlags: 0

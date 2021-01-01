@@ -15,6 +15,11 @@ public class Player : MonoBehaviour
     [SerializeField] float fireSpeed = 10f;
     [SerializeField] float firingInterval = 0.1f;
 
+    [Header("SFX")]
+    [SerializeField] GameObject explosionVFX;
+    [SerializeField] AudioClip explodingSFX;
+    [SerializeField] float fxDuration = 1f;
+
     //variables
     private Vector3 touchPosition;
     private Rigidbody2D rb;
@@ -131,8 +136,23 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
+            PlayerExplode();
             Destroy(gameObject);
         }
+    }
+
+    private void PlayerExplode()
+    {
+        GameObject ShowExplosionVFX = 
+            Instantiate(explosionVFX, 
+            transform.position, 
+            Quaternion.identity);
+
+        AudioSource.
+            PlayClipAtPoint(explodingSFX, 
+            Camera.main.transform.position);
+
+        Destroy(ShowExplosionVFX, fxDuration);
     }
 
 
