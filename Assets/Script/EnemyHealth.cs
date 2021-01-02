@@ -16,6 +16,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] GameObject enemeyProjectilePrefab;
     [SerializeField] GameObject explosionVFX;
     [SerializeField] AudioClip explosionSFX;
+    [SerializeField] AudioClip enemyFireSFX;
 
 
     // Start is called before the first frame update
@@ -49,6 +50,7 @@ public class EnemyHealth : MonoBehaviour
         GameObject enemyProjectile = Instantiate(enemeyProjectilePrefab, 
             transform.position, 
             Quaternion.identity) as GameObject;
+        EnemyFireSFX(); //SFX for enemy projectile
 
         enemyProjectile.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -projectileSpeed);
         Destroy(enemyProjectile, 2);
@@ -88,7 +90,15 @@ public class EnemyHealth : MonoBehaviour
 
     private void PlayExplosionSFX()
     {
-        AudioSource.PlayClipAtPoint(explosionSFX, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint
+            (explosionSFX, Camera.main.transform.position);
+    }
+
+    private void EnemyFireSFX()
+    {
+        AudioSource.PlayClipAtPoint
+            (enemyFireSFX, Camera.main.transform.position);
+
     }
 
 }
