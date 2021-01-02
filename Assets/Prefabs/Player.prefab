@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8243278952494756852}
   - component: {fileID: 8243278952494756853}
   - component: {fileID: 8243278952494756851}
-  - component: {fileID: 8243278952494756850}
   - component: {fileID: 8243278952494756849}
   m_Layer: 8
   m_Name: Player
@@ -105,22 +104,9 @@ MonoBehaviour:
   firingInterval: 0.2
   explosionVFX: {fileID: 127332, guid: ef08d13eead399d4dbdaf49c94540206, type: 3}
   explodingSFX: {fileID: 8300000, guid: 4110fcfc8214b294794799cb216c4931, type: 3}
-  fxDuration: 0.5
---- !u!114 &8243278952494756850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8243278952494756854}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fbf242dec923542a605ab8a75c95de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  laserPrefab: {fileID: 0}
-  fireSpeed: 10
-  firingInterval: 0.1
+  playerProjectileSFX: {fileID: 8300000, guid: 06da7b5bf6a5af543a0c392285580fdd, type: 3}
+  vfxDuration: 0.5
+  playerProjectileSfxVolume: 0.1
 --- !u!50 &8243278952494756849
 Rigidbody2D:
   serializedVersion: 4

@@ -18,7 +18,9 @@ public class Player : MonoBehaviour
     [Header("SFX")]
     [SerializeField] GameObject explosionVFX;
     [SerializeField] AudioClip explodingSFX;
-    [SerializeField] float fxDuration = 1f;
+    [SerializeField] AudioClip playerProjectileSFX;
+    [SerializeField] float vfxDuration = 1f;
+    [SerializeField] [Range(0,1)] float playerProjectileSfxVolume = 0.75f;
 
     //variables
     private Vector3 touchPosition;
@@ -31,12 +33,16 @@ public class Player : MonoBehaviour
     float xMin, yMin;
     float xMax, yMax;
 
+    //SceneLoader Hook
+    LevelController sceneLoader;
+
     // Start is called before the first frame update
     void Start()
     {
 
         rb = GetComponent<Rigidbody2D>();
         SetUpMoveBounderies();
+        sceneLoader = FindObjectOfType<LevelController>();
         
     }
 
@@ -74,6 +80,7 @@ public class Player : MonoBehaviour
                 Quaternion.identity) as GameObject;
 
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, fireSpeed);
+            AudioSource.PlayClipAtPoint(playerProjectileSFX, Camera.main.transform.position, playerProjectileSfxVolume);
             Destroy(laser, 2);
             yield return new WaitForSeconds(firingInterval);
 
@@ -138,6 +145,7 @@ public class Player : MonoBehaviour
         {
             PlayerExplode();
             Destroy(gameObject);
+            sceneLoader.LoadGameOver();
         }
     }
 
@@ -152,7 +160,7 @@ public class Player : MonoBehaviour
             PlayClipAtPoint(explodingSFX, 
             Camera.main.transform.position);
 
-        Destroy(ShowExplosionVFX, fxDuration);
+        Destroy(ShowExplosionVFX, vfxDuration);
     }
 
 

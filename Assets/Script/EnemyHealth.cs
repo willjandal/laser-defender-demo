@@ -74,7 +74,6 @@ public class EnemyHealth : MonoBehaviour
         if (health <= 0)
         {
             Die();
-            PlayExplosionSFX();
         }
     }
 
@@ -86,12 +85,7 @@ public class EnemyHealth : MonoBehaviour
             transform.position, 
             Quaternion.identity);
         Destroy(ShowExplosionVFX, fxDuration);
-    }
-
-    private void PlayExplosionSFX()
-    {
-        AudioSource.PlayClipAtPoint
-            (explosionSFX, Camera.main.transform.position);
+        AudioSource.PlayClipAtPoint(explosionSFX, Camera.main.transform.position);
     }
 
     private void EnemyFireSFX()
