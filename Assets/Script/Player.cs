@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
                 Quaternion.identity) as GameObject;
 
             laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, fireSpeed);
-            AudioSource.PlayClipAtPoint(playerProjectileSFX, Camera.main.transform.position, playerProjectileSfxVolume);
+            //AudioSource.PlayClipAtPoint(playerProjectileSFX, Camera.main.transform.position, playerProjectileSfxVolume);
             Destroy(laser, 2);
             yield return new WaitForSeconds(firingInterval);
 
@@ -143,13 +143,13 @@ public class Player : MonoBehaviour
         damageDealer.Hit();
         if (health <= 0)
         {
-            PlayerExplode();
+            PlayerDie();
             Destroy(gameObject);
             sceneLoader.LoadGameOver();
         }
     }
 
-    private void PlayerExplode()
+    private void PlayerDie()
     {
         GameObject ShowExplosionVFX = 
             Instantiate(explosionVFX, 
