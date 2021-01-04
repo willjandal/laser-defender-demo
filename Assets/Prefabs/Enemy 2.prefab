@@ -116,6 +116,7 @@ MonoBehaviour:
   maxTimeBetweenShots: 3
   projectileSpeed: 10
   fxDuration: 0.5
+  scoreValue: 75
   enemeyProjectilePrefab: {fileID: 4787845761063562653, guid: 22ab0099d35fb5f4aa345bd3580e68ca,
     type: 3}
   explosionVFX: {fileID: 127332, guid: ef08d13eead399d4dbdaf49c94540206, type: 3}

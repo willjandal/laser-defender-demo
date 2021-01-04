@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] float maxTimeBetweenShots = 3f;
     [SerializeField] float projectileSpeed = 10f;
     [SerializeField] float fxDuration = 1f;
+    [SerializeField] int scoreValue = 50;
 
     [Header("GameObjects")]
     [SerializeField] GameObject enemeyProjectilePrefab;
@@ -79,6 +80,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<GameSession>().AddToScore(scoreValue);
         Destroy(gameObject);
         GameObject ShowExplosionVFX = 
             Instantiate(explosionVFX, 

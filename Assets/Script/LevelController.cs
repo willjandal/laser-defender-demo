@@ -19,6 +19,7 @@ public class LevelController : MonoBehaviour
     public void LoadGameScene()
     {
         SceneManager.LoadScene("Gameplay Scene");
+        FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void LoadGameOver()
