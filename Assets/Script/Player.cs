@@ -163,6 +163,11 @@ public class Player : MonoBehaviour
         Destroy(ShowExplosionVFX, vfxDuration);
     }
 
+    public int GetHealth()
+    {
+        return health; //this will return the value of the health when the GetHealth() method is called
+    }
+
 
     private void SetUpMoveBounderies()
     {
