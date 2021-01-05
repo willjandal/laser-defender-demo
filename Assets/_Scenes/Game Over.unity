@@ -852,7 +852,7 @@ GameObject:
   - component: {fileID: 1134040845}
   - component: {fileID: 1134040848}
   - component: {fileID: 1134040847}
-  - component: {fileID: 1134040846}
+  - component: {fileID: 1134040849}
   m_Layer: 5
   m_Name: Highest Score
   m_TagString: Untagged
@@ -879,19 +879,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -155}
   m_SizeDelta: {x: 1080, y: 106.4}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1134040846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1134040844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c931caae0ee8e194bb7ff1baea924154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1134040847}
 --- !u!114 &1134040847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1010,6 +997,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134040844}
   m_CullTransparentMesh: 0
+--- !u!114 &1134040849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134040844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4d863b17e7bdb46a6653ab20402439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bestScore: {fileID: 1134040847}
 --- !u!224 &1394175824 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9076674729445482620, guid: c4365e40847969546898c36ce5508d7b,

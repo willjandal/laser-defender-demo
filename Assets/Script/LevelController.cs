@@ -11,6 +11,8 @@ public class LevelController : MonoBehaviour
 {
 
     [SerializeField] float delayInSeconds = 2f;
+    //int currentScore;
+
     public void LoadStartMenu()
     {
         SceneManager.LoadScene(0);
@@ -25,6 +27,13 @@ public class LevelController : MonoBehaviour
     public void LoadGameOver()
     {
         StartCoroutine(WaitAndLoad());
+        /*currentScore = FindObjectOfType<GameSession>().GetScore();
+
+        if (currentScore > PlayerPrefs.GetInt("Best", 0))
+        {
+            PlayerPrefs.SetInt("Best", currentScore);
+        }*/
+        
     }
 
     public void QuitGame()
